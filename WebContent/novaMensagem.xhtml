@@ -1,0 +1,46 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<meta charset="ISO-8859-1"/>
+<title>Criar Mensagem</title>
+</h:head>
+<h:body>
+<h:form>
+                
+        <p:tab id="message" title="Mensagem">                    
+    	<p:panel header="Escreva sua Mensagem">
+    	<h:panelGrid  columns="2" columnClasses="label, value">
+    	
+    		<h:outputLabel for="id" value="ID:*" style="font-weight:bold" />
+	        <p:inputText id="id" value="#{mensagemBean.id}" required="true" />
+	        <h:messages for="id"/><f:validateLongRange minimum="0" maximum="100" /><f:validateRegex pattern="[0-9]"/>
+    		
+    		
+	        <h:outputLabel for="nome" value="Nome:*" style="font-weight:bold" />
+	        <p:inputText id="nome" value="#{mensagemBean.nome}" required="true"/>
+	        <h:messages for="nome"/><f:validateRegex pattern="[a-z]{3,30}"/>
+	        
+	        <h:outputLabel for="email" value="Email:*" style="font-weight:bold"/>
+	        <p:inputText id="email" value="#{mensagemBean.email}" title="Email Obrigatorio"/>
+	        <h:messages for="nome"/><f:validateLength minimum="3" maximum="30" />
+	 
+    		<h:outputLabel for="end" value="Endereco:" style="font-weight:bold"/>
+	        <p:inputText id="end" value="#{mensagemBean.end}"/><br/>
+	        
+	        
+	        <h:outputLabel for="texto" value="Mensagem:*" style="font-weight:bold"/>
+	        <p:inputTextarea id="texto" value="#{mensagemBean.text}" required="true" maxlength="" /><br/>
+	        
+	        	         
+	        <p:commandButton  value="Enviar Mensagem"/>
+	 
+    	</h:panelGrid>    	
+     	</p:panel>
+     	</p:tab>
+	</h:form>
+</h:body>
+</html>
