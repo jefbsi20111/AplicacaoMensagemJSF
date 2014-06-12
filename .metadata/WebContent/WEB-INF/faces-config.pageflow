@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14024198804630" configfile="/AplicacaoMensagemJSF/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" name="index" id="pf14024198804630" configfile="/AplicacaoMensagemJSF/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="novaMensagem" x="338" y="178" id="pf14025096452881" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf14025096452892" inlinks="pf14025379577204" path="/novaMensagem.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="novaMensagem.xhtml" x="122" y="178" id="pf14025096452893" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14025379577204" inlinks="pf14025096452892" path="/listarMensagens.xhtml"/>
+  <links id="pf14025096452892" target="pf14025096452893" source="pf14025096452881" outcome="msgSucesso"/>
+  <links id="pf14025379577204" target="pf14025096452881" source="pf14025096452893" outcome="voltar"/>
+</pageflow:Pageflow>

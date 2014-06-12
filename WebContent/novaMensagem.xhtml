@@ -9,38 +9,49 @@
 <title>Criar Mensagem</title>
 </h:head>
 <h:body>
-<h:form>
+
+<h:form id="form1">
                 
-        <p:tab id="message" title="Mensagem">                    
+        <p:tab id="message" title="Mensagem"  >                    
     	<p:panel header="Escreva sua Mensagem">
     	<h:panelGrid  columns="2" columnClasses="label, value">
-    	
-    		<h:outputLabel for="id" value="ID:*" style="font-weight:bold" />
-	        <p:inputText id="id" value="#{mensagemBean.id}" required="true" />
-	        <h:messages for="id"/><f:validateLongRange minimum="0" maximum="100" /><f:validateRegex pattern="[0-9]"/>
     		
     		
-	        <h:outputLabel for="nome" value="Nome:*" style="font-weight:bold" />
-	        <p:inputText id="nome" value="#{mensagemBean.nome}" required="true"/>
-	        <h:messages for="nome"/><f:validateRegex pattern="[a-z]{3,30}"/>
+    		<h:outputLabel  value="ID:*" style="font-weight:bold"  />
+	        <p:inputText id="id" value="#{mensagem.msg.id}" required="true">
+	        <f:validateLongRange minimum="0" maximum="100" />
 	        
-	        <h:outputLabel for="email" value="Email:*" style="font-weight:bold"/>
-	        <p:inputText id="email" value="#{mensagemBean.email}" title="Email Obrigatorio"/>
-	        <h:messages for="nome"/><f:validateLength minimum="3" maximum="30" />
+	        </p:inputText>
+    		
+    		
+	        <h:outputLabel  value="Nome:*" style="font-weight:bold"  />
+	        <p:inputText id="nome" value="#{mensagem.msg.nome}" required="true" >
+	        <f:validateRegex pattern="[a-z]{3,30}"/><f:validateLength minimum = "3" maximum = "20"/>
+	        
+	        </p:inputText>
+	        	        
+	        <h:outputLabel  value="Email:*" style="font-weight:bold"/>
+	        <p:inputText id="email" size="30" value="#{mensagem.msg.email}"  required="true"  >
+	        <f:validateRegex pattern="(^[_A-Za-z0-9-]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$)" />
+	        <h:message for="email" /><h:message for="email" />
+	        </p:inputText>
 	 
     		<h:outputLabel for="end" value="Endereco:" style="font-weight:bold"/>
-	        <p:inputText id="end" value="#{mensagemBean.end}"/><br/>
+	        <p:inputText id="end" value="#{mensagem.msg.end}"/>
 	        
 	        
-	        <h:outputLabel for="texto" value="Mensagem:*" style="font-weight:bold"/>
-	        <p:inputTextarea id="texto" value="#{mensagemBean.text}" required="true" maxlength="" /><br/>
-	        
+	        <h:outputLabel value="Mensagem:*" style="font-weight:bold"/>
+	        <p:inputTextarea id="texto" value="#{mensagem.msg.texto}" required="true" maxlength="60">
+	        <f:validateLength minimum="3" maximum="20" /><f:validateRegex pattern="[a-z,A-Z,0-9]{3,30}"/>
+	        <h:messages for="texto"/>
+	        </p:inputTextarea>
 	        	         
-	        <p:commandButton  value="Enviar Mensagem"/>
+	        <p:commandButton action="#{mensagem.enviarMensagem()}" value="Enviar Mensagem"/>
 	 
     	</h:panelGrid>    	
      	</p:panel>
      	</p:tab>
 	</h:form>
 </h:body>
+
 </html>

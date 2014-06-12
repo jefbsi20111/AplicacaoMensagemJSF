@@ -11,7 +11,7 @@
 <body>
 <h:form>
                              
-    	<h:panelGrid columns="4" cellpadding="5">
+    	<!-- <h:panelGrid columns="4" cellpadding="5">
 	        <h:outputLabel for="nome_empresa" value="Razao Social:" style="font-weight:bold"/><br/>
 	        <h:inputText id="nome_empresa"  /><br/>
 	        
@@ -24,6 +24,16 @@
     	</h:panelGrid>
      
 	</h:form>
-
+ -->
+ 
+ 	<jsp:foward page="novaMensagem.jsf"/>
 </body>
 </html>
+
+
+<welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>

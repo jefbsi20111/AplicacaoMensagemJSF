@@ -7,61 +7,43 @@ import java.util.List;
 
 
 
+
+
 public class Mensagem {
 	
-	private int id;
-	private String nome;
-	private String end;
-	private String email;
-	private String texto;
-	private List<Mensagem> lista = new ArrayList<Mensagem>();
+	private Msg msg = new Msg();
+	private List<Msg> lista = new ArrayList<Msg>();
 	
-	public int getId() {
-		return id;
+	
+	
+	public String enviarMensagem(){
+		lista.add(msg);
+		msg = new Msg();
+		return "listarMensagens";
 	}
-	public void setId(int id) {
-		this.id = id;
+
+
+
+	public Msg getMsg() {
+		return msg;
 	}
-	public String getNome() {
-		return nome;
+
+
+
+	public void setMsg(Msg msg) {
+        this.msg = msg;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getEnd() {
-		return end;
-	}
-	public void setEnd(String end) {
-		this.end = end;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getTexto() {
-		return texto;
-	}
-	public void setTexto(String texto) {
-		this.texto = texto;
-	}
-	public List<Mensagem> getLista() {
+
+
+
+	public List<Msg> getLista() {
 		return lista;
 	}
-	public void setLista(List<Mensagem> lista) {
+
+
+
+	public void setLista(List<Msg> lista) {
 		this.lista = lista;
 	}
-	public String addMensagem(Mensagem mb) {
-		this.lista.add(mb);
-		return "show";
+	
 	}
-	public void popMensagem(int id) {
-		for(Mensagem mb:this.lista){
-			if(mb.getId() == id){
-				this.lista.remove(id);
-			}
-		}
-	}
-	private String algo = "algo";
-}
